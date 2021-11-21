@@ -2,53 +2,56 @@
 
 //     Create a function called cleanUpIndex that removes all of the DOM nodes that are unique to the Index page. This function takes no parameters.
 
-// function cleanUPIndex() {
-//     let all = document.getElementsByTagName('*');
-//     for (let i=0; i<all.length; i++) {all[i].remove();};
-// }
-// ^^^This removes EVERYTHING on the page, am not sure if we are just removing the contact cards... 
-
 function cleanUPIndex() {
-    let all = document.getElementsByClassName('main');
-    for (let i = 0; i < all.length; i) {all[i].remove();};
+    let main = document.getElementsByClassName('main');
+    all_a = main[0].querySelectorAll('a')
+    for (let i = 0; i < all_a.length; i++) {all_a[i].remove();};
 }
-
-// ^^^This seems to be what the question is asking for.
-
-// function cleanUPIndex() {
-//     let all = document.getElementsByClassName('main');
-//     let range=all.length
-//     for (let i = 0; i < range; i++) {all[0].remove();};
-// }
+// ^^^This seems to be what the question is asking for. By keeping div.main, this allows renderIndex(array) to dump new index without cleanUpIndex() being run first; the new cards are appened to already-existing div.main instead of using a new div.main.
 
 //     Create a function called createSingleIndex that creates a DOM node that represents a single index card for the Index page. This function will take in a single object, where that object represents a single contact (see examples below). It should output a DOM node. It does not need to attach the DOM node to the rest of the DOM.
-function createSingleIndex(object) {
+function createSingleIndex(single_object) {
+    let new_a = document.createElement('a');
+    new_a.href="page3.html";
     let contact_node = document.createElement('div');
-    contact_node.classList.add('contact');
-
-
-    let index_node = document.createTextNode(object);
-    let new_node = contact_node.appendChild(index_node);
-    return new_node;
+    contact_node.classList.add('contact'); 
+    let name = document.createTextNode(single_object);
+    let new_p = document.createElement('p');
+    new_p.appendChild(name);
+    contact_node.appendChild(new_p);
+    new_a.appendChild(contact_node);
+    return new_a
 }
-
 
 //     Create a function called renderIndex that creates all of the DOM nodes that are unique to the Index page. This function will take in a single parameter, which is an array containing many contacts, each of which represents a single contact. An example array of contacts is provided below. But be warned, I will supply the array, and I may change the details, like how many contacts there are. Obviously the reason you wrote createSingleIndex is because I thought it would help you write this function. Unlike createSingleIndex, which just sort of creates some stuff in isolation, this function must actually put DOM nodes onto the web page.
+
 function renderIndex(array) {
-    let main_div = document.createElement('div');
-    main_div.classList.add('main');
-    document.body.appendChild(main_div)  
+    let main_div=document.getElementsByClassName('main')
+
     for (let i=0; i<array.length; i++) {
-        let new_a = document.createElement('a')
-        new_a.href="page3.html";
-        main_div.appendChild(new_a);
-        let contact_node = document.createElement('div');
-        contact_node.classList.add('contact'); 
-        let name = document.createTextNode(array[i]['name']);
-        contact_node.appendChild(name);
-        new_a.appendChild(contact_node);
+        let new_a = createSingleIndex(array[i]['name'])
+        main_div[0].appendChild(new_a);
     }
 }
+
+
+// function vanilla_renderIndex(array) {
+//     let main_div=document.getElementsByClassName('main')
+
+//     for (let i=0; i<array.length; i++) {
+//         let new_a = document.createElement('a');
+//         new_a.href="page3.html";
+//         main_div[0].appendChild(new_a);
+//         let contact_node = document.createElement('div');
+//         contact_node.classList.add('contact'); 
+//         let name = document.createTextNode(array[i]['name']);
+//         let new_p = document.createElement('p');
+//         new_p.appendChild(name);
+//         contact_node.appendChild(new_p);
+//         new_a.appendChild(contact_node);
+//     }
+// }
+
 
 
 // /* Here is an example of a contact list array, with two contacts already populated */

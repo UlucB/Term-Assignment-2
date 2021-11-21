@@ -1,4 +1,3 @@
-
 // Index Page
 
 //     Create a function called cleanUpIndex that removes all of the DOM nodes that are unique to the Index page. This function takes no parameters.
@@ -9,8 +8,8 @@
 // }
 // ^^^This removes EVERYTHING on the page, am not sure if we are just removing the contact cards... 
 
-function cleanUPIndex2() {
-    let all = document.getElementsByClassName('contact');
+function cleanUPIndex() {
+    let all = document.getElementsByClassName('main');
     for (let i = 0; i < all.length; i) {all[i].remove();};
 }
 
@@ -22,47 +21,63 @@ function cleanUPIndex2() {
 //     for (let i = 0; i < range; i++) {all[0].remove();};
 // }
 
-
 //     Create a function called createSingleIndex that creates a DOM node that represents a single index card for the Index page. This function will take in a single object, where that object represents a single contact (see examples below). It should output a DOM node. It does not need to attach the DOM node to the rest of the DOM.
 function createSingleIndex(object) {
-    let contact_node = document.createElement('contact');
+    let contact_node = document.createElement('div');
+    contact_node.classList.add('contact');
+
+
     let index_node = document.createTextNode(object);
     let new_node = contact_node.appendChild(index_node);
     return new_node;
-
-    // let new_object = object[0];
-    // let new_node = create_new_contact.appendChild(new_object);
-    // return new_node;
 }
+
 
 //     Create a function called renderIndex that creates all of the DOM nodes that are unique to the Index page. This function will take in a single parameter, which is an array containing many contacts, each of which represents a single contact. An example array of contacts is provided below. But be warned, I will supply the array, and I may change the details, like how many contacts there are. Obviously the reason you wrote createSingleIndex is because I thought it would help you write this function. Unlike createSingleIndex, which just sort of creates some stuff in isolation, this function must actually put DOM nodes onto the web page.
 function renderIndex(array) {
-
-    for (let i=0; i<array.length + 1; i++) 
-        {let contact_node = document.createElement('contact'); 
-        let name = array[i]['name']
-        let index_node = document.createTextNode(name);
-        contact_node.appendChild(index_node)}
-    // document.createElement() 
-    return array
-
+    let main_div = document.createElement('div');
+    main_div.classList.add('main');
+    document.body.appendChild(main_div)  
+    for (let i=0; i<array.length; i++) {
+        let new_a = document.createElement('a')
+        new_a.href="page3.html";
+        main_div.appendChild(new_a);
+        let contact_node = document.createElement('div');
+        contact_node.classList.add('contact'); 
+        let name = document.createTextNode(array[i]['name']);
+        contact_node.appendChild(name);
+        new_a.appendChild(contact_node);
+    }
 }
 
+
 // /* Here is an example of a contact list array, with two contacts already populated */
-// let contactList = [
-//   {
-//     name: "Roberta Dobbs",
-//     phone: "778-555-1234",
-//     address: "101 Main St, Anytown, USA",
-//     email: "subgenius@slack.example.com",
-//   }, 
-//   {
-//     name: "Bugs Bunny",
-//     phone: "123-867-5309",
-//     address: "Warner Brothers Animation Lot",
-//     email: "whatsup@doc.example.com",
-//   },
-// ]
+let contactList = [
+  {
+    name: "Roberta Dobbs",
+    phone: "778-555-1234",
+    address: "101 Main St, Anytown, USA",
+    email: "subgenius@slack.example.com",
+  }, 
+  {
+    name: "Bugs Bunny",
+    phone: "123-867-5309",
+    address: "Warner Brothers Animation Lot",
+    email: "whatsup@doc.example.com",
+  },
+    {
+    name: "Roberta Dobbs",
+    phone: "778-555-1234",
+    address: "101 Main St, Anytown, USA",
+    email: "subgenius@slack.example.com",
+  }, 
+  {
+    name: "Bugs Bunny",
+    phone: "123-867-5309",
+    address: "Warner Brothers Animation Lot",
+    email: "whatsup@doc.example.com",
+  },
+]
 
 // How you can tell it's working
 
@@ -78,9 +93,10 @@ function renderIndex(array) {
 // This is the page where we view a single contact that we created previously.
 
 // //     Create a function called cleanUpView that removes all of the DOM nodes that are unique to the View page. This function takes no parameters.
-// function cleanUpView() {
-//     let para = document.querySelectorAll('p')
-//     return para
+function cleanUpView() {
+    let all = document.getElementsByClassName('contactinfo');
+    for (let i = 0; i < all.length; i) {all[i].remove();};
+}
 
 // } 
 // // //     Create a function called renderView that creates all of the DOM nodes that are unique to the View page. This function will take in a single parameter, which is an object that represents a single contact. Much like renderIndex, this function is reponsible for actually modifying the web page.
@@ -103,8 +119,10 @@ function renderIndex(array) {
 // I hope the pattern is pretty obvious at this point.
 
 // //     Create a function called cleanUpCreate that removes all of the DOM nodes that are unique to the Create page. This function takes no parameters.
-// function cleanUpCreate() {
-//     return
+function cleanUpCreate() {
+    let all = document.getElementsByClassName('contactedit');
+    for (let i = 0; i < all.length; i) {all[i].remove();};
+}
 
 // }
 // //     Create a function called renderCreate that creates all of the DOM nodes that are unique to the Create page. This function will take in a single parameter, which is an object that represents a single contact. Much like renderIndex, this function is reponsible for actually modifying the web page.

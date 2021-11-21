@@ -131,9 +131,7 @@ function cleanUpCreate() {
     for (let i = 0; i < all.length; i) {all[i].remove();};
 }
 
-// //     Create a function called renderCreate that creates all of the DOM nodes that are unique to the Create page. This function will take in a single parameter, which is an object that represents a single contact. Much like renderIndex, this function is reponsible for actually modifying the web page.
-
-function renderCreate(single_contact) {
+function renderCreate() {
     let main_class = document.getElementsByClassName('main');
     let main = main_class[0];
     // //two divs needed inside contactedit: contacting and form
@@ -270,47 +268,7 @@ function renderCreate(single_contact) {
     main.appendChild(contact_edit_node);
 }
 
-// How you can tell it's working
-
-// If you go to an index page, and you open the browser console, you should be able to:
-
-//     call cleanUpCreate() to delete the form and all the inputs and so on
-//     call renderCreate() to put it all back
-//         the page should be exactly the same as it was before!
-//     rinse and repeat
-
-// Grading
-
-// So you should have written 7 functions for this. Each function will be graded on a 2-point scale, for a total of 14 points for functionality.
-
-//     2 points for flawless
-//     1 point for mostly working but not flawless
-//     0 points for not really working
-
-// There will be an additional 3 points for code clarity, style, layout, variable names, etc.
-
-//     3 points: it is presentable to a professional standard
-//     2 points: minor lapses
-//     1 points: this looks like you did not make an effort
-//     0 points: vomiting noises
-
-// There will be 2 points for good git commit history, including branching at least once, merging at least once, good commit messages (no more "first commit" nonsense), not all commited at once.
-
-//     2 points: multi-commits present, merge present, no stupid commit messages
-//     1 point: tolerable but weak
-//     0 points: one single tear
-
-// That's a total of 19 points, because nice round numbers are overrated.
-// Submission
-
-// Push to your new GitHub repo (i.e. for A2 do not re-use your A1 repo), and put a link in the D2L dropbox. I will expect to see the file script.js right in the top-level directory of the main branch of your repo (can we all use main, just so I can write scripts to get the marks back faster, please).
-// Optional
-
-// If you want to take it farther, here's what didn't make the cut for this assignment. You could obviously add another page called Edit that looks just like Create, and for that page create another set of functions for editing. It's sort of the same as the Create page, but it takes in an existing contact object, and pre-populates all the fields. It also would say "Update" or something on the button, instead of "Save".
-
-// No, I'm not promising any bonus marks for this, mostly because it makes the marking a mess. The bonus is in your heart.
-
-// /* Here is an example of a contact list array, with two contacts already populated */
+// /* Here is an example of a contact list array, with three contacts already populated */
 let contactList = [
     {
       name: "Roberta Dobbs",

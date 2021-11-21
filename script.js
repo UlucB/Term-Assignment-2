@@ -118,8 +118,6 @@ function renderView(single_contact) {
     button_node.appendChild(close_button);
 
     contact_info_node.appendChild(button_node);
-
-    //append all of the above into div.main
     main.appendChild(contact_info_node);
 }
 
@@ -133,8 +131,7 @@ function cleanUpCreate() {
 function renderCreate() {
     let main_class = document.getElementsByClassName('main');
     let main = main_class[0];
-    // //two divs needed inside contactedit: contacting and form
-    // **pretend there is an update here
+
     let contact_edit_node = document.createElement('div');
     contact_edit_node.classList.add('contactedit'); 
 

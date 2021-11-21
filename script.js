@@ -149,7 +149,7 @@ function cleanUpCreate() {
 
 
 function renderCreate(single_contact) {
-    return single_contact
+    //two divs needed inside contactedit: contacting and form
 
 
 }

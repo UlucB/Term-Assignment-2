@@ -4,9 +4,9 @@
 
 // Index Page 
 
-function cleanUPIndex() {
+function cleanUpIndex() {
     let main = document.getElementsByClassName('main');
-    all_a = main[0].querySelectorAll('a')
+    all_a = main[0].querySelectorAll('a');
     for (let i = 0; i < all_a.length; i++) {all_a[i].remove();};
 }
 
@@ -20,14 +20,14 @@ function createSingleIndex(single_object) {
     new_p.appendChild(name);
     contact_node.appendChild(new_p);
     new_a.appendChild(contact_node);
-    return new_a
+    return new_a;
 }
 
 function renderIndex(array) {
-    let main_div=document.getElementsByClassName('main')
+    let main_div=document.getElementsByClassName('main');
 
     for (let i=0; i<array.length; i++) {
-        let new_a = createSingleIndex(array[i]['name'])
+        let new_a = createSingleIndex(array[i]['name']);
         main_div[0].appendChild(new_a);
     }
 }
@@ -52,9 +52,8 @@ function renderIndex(array) {
 // View Page
 
 function cleanUpView() {
-    let main = document.getElementsByClassName('main');
-    all_div = main[0].querySelectorAll('div');
-    for (let i = 0; i < all_div.length; i++) {all_div[i].remove();};
+    let main = document.getElementsByClassName('contactedit');
+    main[0].remove();
 }
 
 function renderView(single_contact) {
@@ -159,7 +158,7 @@ function renderCreate() {
     let name_container = document.createElement('div');
     name_container.classList.add('inputcontainer');
 
-    let name_inp = document.createElement('input')
+    let name_inp = document.createElement('input');
     name_inp.id='contactname';
     name_inp.type='text';
     name_inp.name='contactname';
@@ -180,7 +179,7 @@ function renderCreate() {
     let phone_container = document.createElement('div');
     phone_container.classList.add('inputcontainer');
 
-    let phone_inp = document.createElement('input')
+    let phone_inp = document.createElement('input');
     phone_inp.id='contactphone';
     phone_inp.type='tel';
     phone_inp.name='contactphone';
@@ -201,7 +200,7 @@ function renderCreate() {
     let address_container = document.createElement('div');
     address_container.classList.add('inputcontainer');
 
-    let address_inp = document.createElement('input')
+    let address_inp = document.createElement('input');
     address_inp.id='contactaddress';
     address_inp.type='text';
     address_inp.name='contactaddress';
@@ -222,7 +221,7 @@ function renderCreate() {
     let email_container = document.createElement('div');
     email_container.classList.add('inputcontainer');
 
-    let email_inp = document.createElement('input')
+    let email_inp = document.createElement('input');
     email_inp.id='contactemail';
     email_inp.type='email';
     email_inp.name='contactemail';

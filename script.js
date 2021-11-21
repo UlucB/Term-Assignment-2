@@ -52,8 +52,8 @@ function renderIndex(array) {
 // View Page
 
 function cleanUpView() {
-    let main = document.getElementsByClassName('contactedit');
-    main[0].remove();
+    let main = document.getElementsByClassName('contactinfo');
+    for (let i = 0; main.length>0 ; i) {main[i].remove();};
 }
 
 function renderView(single_contact) {
@@ -127,7 +127,7 @@ function renderView(single_contact) {
 
 function cleanUpCreate() {
     let all = document.getElementsByClassName('contactedit');
-    for (let i = 0; i < all.length; i) {all[i].remove();};
+    for (let i = 0; all.length>0 ; i) {all[i].remove();};
 }
 
 function renderCreate() {

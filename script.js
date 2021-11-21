@@ -134,10 +134,140 @@ function cleanUpCreate() {
 // //     Create a function called renderCreate that creates all of the DOM nodes that are unique to the Create page. This function will take in a single parameter, which is an object that represents a single contact. Much like renderIndex, this function is reponsible for actually modifying the web page.
 
 function renderCreate(single_contact) {
+    let main_class = document.getElementsByClassName('main');
+    let main = main_class[0];
     // //two divs needed inside contactedit: contacting and form
     // **pretend there is an update here
+    let contact_edit_node = document.createElement('div');
+    contact_edit_node.classList.add('contactedit'); 
 
+    //contactimg
+    let contact_img_node = document.createElement('div');
+    contact_img_node.classList.add('contactimg'); 
+    let img_node = document.createElement('img');
+    img_node.classList.add('profilepic');
+    img_node.src="./img/profile.jpg";
+    img_node.alt='Profile picture';
+    contact_img_node.appendChild(img_node);
+    contact_edit_node.appendChild(contact_img_node);
 
+    //forms
+    let form_div_node = document.createElement('div');
+    form_div_node.classList.add('form');
+
+    let forms_node = document.createElement('form');
+
+    //name
+    let name_container = document.createElement('div');
+    name_container.classList.add('inputcontainer');
+
+    let name_inp = document.createElement('input')
+    name_inp.id='contactname';
+    name_inp.type='text';
+    name_inp.name='contactname';
+    name_inp.placeholder='Contact Name';
+
+    let name_button = document.createElement('button');
+    name_button.id='extranamefield';
+    name_button.classList.add('extrafield');
+    name_button.name='extranamefield';
+    let name_plus = document.createTextNode('+');
+    
+    name_button.appendChild(name_plus);
+    name_container.appendChild(name_inp);
+    name_container.appendChild(name_button);
+    forms_node.appendChild(name_container);
+
+    //phone
+    let phone_container = document.createElement('div');
+    phone_container.classList.add('inputcontainer');
+
+    let phone_inp = document.createElement('input')
+    phone_inp.id='contactphone';
+    phone_inp.type='tel';
+    phone_inp.name='contactphone';
+    phone_inp.placeholder='Contact Phone';
+
+    let phone_button = document.createElement('button');
+    phone_button.id='extraphonefield';
+    phone_button.classList.add('extrafield');
+    phone_button.name='extraphonefield';
+    let phone_plus = document.createTextNode('+');
+    
+    phone_button.appendChild(phone_plus);
+    phone_container.appendChild(phone_inp);
+    phone_container.appendChild(phone_button);
+    forms_node.appendChild(phone_container);
+
+    //address
+    let address_container = document.createElement('div');
+    address_container.classList.add('inputcontainer');
+
+    let address_inp = document.createElement('input')
+    address_inp.id='contactaddress';
+    address_inp.type='text';
+    address_inp.name='contactaddress';
+    address_inp.placeholder='Contact Address';
+
+    let address_button = document.createElement('button');
+    address_button.id='extraaddressfield';
+    address_button.classList.add('extrafield');
+    address_button.name='extraaddressfield';
+    let address_plus = document.createTextNode('+');
+    
+    address_button.appendChild(address_plus);
+    address_container.appendChild(address_inp);
+    address_container.appendChild(address_button);
+    forms_node.appendChild(address_container);
+
+    //email
+    let email_container = document.createElement('div');
+    email_container.classList.add('inputcontainer');
+
+    let email_inp = document.createElement('input')
+    email_inp.id='contactemail';
+    email_inp.type='email';
+    email_inp.name='contactemail';
+    email_inp.placeholder='Contact Email';
+
+    let email_button = document.createElement('button');
+    email_button.id='extraemailfield';
+    email_button.classList.add('extrafield');
+    email_button.name='extraemailfield';
+    let email_plus = document.createTextNode('+');
+    
+    email_button.appendChild(email_plus);
+    email_container.appendChild(email_inp);
+    email_container.appendChild(email_button);
+    forms_node.appendChild(email_container);
+
+    //bookend buttons
+    let button_node = document.createElement('div');
+    button_node.classList.add('buttons');
+
+    let save_button = document.createElement('button');
+    save_button.id= 'savecontact';
+    save_button.classList.add('button', 'save');
+    save_button.type= 'submit';
+    save_button.name= 'savecontact';
+    let save_text = document.createTextNode("Save Contact");
+    save_button.appendChild(save_text);
+    button_node.appendChild(save_button);
+
+    let cancel_button = document.createElement('button');
+    cancel_button.classList.add('button', 'cancel');
+    cancel_button.id= 'cancel';
+    cancel_button.classList.add('button', 'cancel');
+    cancel_button.type= 'reset';
+    cancel_button.name= 'cancel';
+    let cancel_text = document.createTextNode("Cancel");
+    cancel_button.appendChild(cancel_text);
+    button_node.appendChild(cancel_button);
+
+    forms_node.appendChild(button_node);
+    form_div_node.appendChild(forms_node);
+    contact_edit_node.appendChild(form_div_node);
+    main.appendChild(contact_edit_node);
 }
 
 // How you can tell it's working

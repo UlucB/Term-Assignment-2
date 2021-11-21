@@ -9,7 +9,6 @@ function cleanUPIndex() {
     all_a = main[0].querySelectorAll('a')
     for (let i = 0; i < all_a.length; i++) {all_a[i].remove();};
 }
-// ^^^This seems to be what the question is asking for. By keeping div.main, this allows renderIndex(array) to dump in new indicies without cleanUpIndex() being run first; the new cards are appened to already-existing div.main instead of using a new div.main.
 
 function createSingleIndex(single_object) {
     let new_a = document.createElement('a');
@@ -125,36 +124,21 @@ function renderView(single_contact) {
     main.appendChild(contact_info_node);
 }
 
-// How you can tell it's working
+// Create Page 
 
-// If you go to an index page, and you open the browser console, you should be able to:
-
-//     call cleanUpView() to the part of the page that shows the individual contact
-//     call renderView(contactList[0]) to put it back
-//         the page should be exactly the same as it was before!
-//     rinse and repeat
-
-// Create Page (page2)
-
-// I hope the pattern is pretty obvious at this point.
-
-// //     Create a function called cleanUpCreate that removes all of the DOM nodes that are unique to the Create page. This function takes no parameters.
 function cleanUpCreate() {
     let all = document.getElementsByClassName('contactedit');
     for (let i = 0; i < all.length; i) {all[i].remove();};
 }
 
-// }
 // //     Create a function called renderCreate that creates all of the DOM nodes that are unique to the Create page. This function will take in a single parameter, which is an object that represents a single contact. Much like renderIndex, this function is reponsible for actually modifying the web page.
 
-
 function renderCreate(single_contact) {
-    //two divs needed inside contactedit: contacting and form
+    // //two divs needed inside contactedit: contacting and form
+    // **pretend there is an update here
 
 
 }
-
-
 
 // How you can tell it's working
 
